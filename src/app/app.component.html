@@ -1,0 +1,58 @@
+<!-- Navbar para todas las páginas -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: white">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="scroll(home)">
+      <img src="/assets/logo/logo.png" id="nav-logo" height="50" width="100%" alt="" loading="lazy"/>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+    </button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <!-- <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(home)">Inicio</a>
+        </li> -->
+        <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(acerca)">Acerca de Nosotros</a>
+        </li>
+        <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(servicios)">Servicios</a>
+        </li>
+        <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(staff)">Staff</a>
+        </li>
+        <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(casos)">Casos de Éxito</a>
+        </li>
+        <li [routerLinkActive]="['active']" class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true" (click)="scroll(contacto)">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- INICIO -->
+<div #home>
+  <app-home></app-home>
+</div>
+<!-- ACERCA DE NOSOTROS -->
+<div #acerca>
+  <app-acerca></app-acerca>
+</div>
+<!-- SERVICIOS -->
+<div #servicios>
+  <app-servicios></app-servicios>
+</div>
+<!-- STAFF -->
+<div #staff>
+  <app-staff></app-staff>
+</div>
+<!-- CASOS DE EXITO -->
+<div #casos>
+  <app-casos></app-casos>
+</div>
+<!-- CONTACTO -->
+<div #contacto>
+  <app-contacto></app-contacto>
+</div>
