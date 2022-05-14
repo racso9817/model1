@@ -1,5 +1,13 @@
-.title
-    text-decoration: underline
-
 .description
     opacity: 0.5
+
+.card
+    border: none
+
+@keyframes animateTitle
+    width: 0
+    transition: all 30s ease-in-out
+        
+.title
+    text-decoration: underline
+    animation: animateTitle 30s steps(80, end)

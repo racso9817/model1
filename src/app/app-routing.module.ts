@@ -7,14 +7,6 @@ import { ServiciosComponent } from './componentes/servicios/servicios.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  {path: 'acerca', component: AcercaComponent},
-  {path: 'servicios', component: ServiciosComponent},
-  // { path: 'home/:pageId',  },
-
-  //page not found
-  { path: '**', component: PageNotFoundComponent},
-
 ];
 
 @NgModule({
