@@ -1,3 +1,66 @@
-<div id="first">
-    CONTACTO
+<div class="row d-flex justify-content-center p-4">
+    <form [formGroup]="contactForm">
+        <div class="form-row">
+            <div class="col">
+                <label class="control-label">Nombre</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <fa-icon icon="user"></fa-icon>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" required>                                        
+                </div>
+                <ng-container *ngFor="let mensaje of mensaje_alerta.nombre">
+                    <div class="help-block has-error" *ngIf="contactForm.get('nombre')?.hasError('required') && (contactForm.get('nombre')?.dirty || contactForm.get('nombre')?.touched)">
+                        {{mensaje}}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col">
+                <label class="control-label">Apellido</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <fa-icon icon="user"></fa-icon>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label class="control-label">Correo Electrónico</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <fa-icon icon="envelope"></fa-icon>
+                        </div>
+                    </div>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label class="control-label">Teléfono</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <fa-icon icon="phone"></fa-icon>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Teléfono" formControlName="celular" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row pb-2">
+            <div class="col">
+                <label class="control-label">Mensaje</label>
+                <textarea class="form-control" rows="3" formControlName="mensaje" required></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!contactForm.valid">Enviar</button>
+    </form>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Directive } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent {
   public isMenuCollapsed = true;
 
   scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth'});
+    el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
 }
