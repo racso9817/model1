@@ -25,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 //Forms Module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//Angular Google Maps
+// import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
