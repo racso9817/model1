@@ -11,3 +11,18 @@
 .title
     text-decoration: underline
     animation: animateTitle 30s steps(80, end)
+
+
+@mixin gradient-bg() 
+  background-color: rgb(249, 249, 235, 0.8)
+  background-image: url('/assets/backgrounds/bg1.jpg')
+  
+.bg-image
+    @include gradient-bg()
+
+
+// #first
+//     background-image: url(/assets/backgrounds/bg1.jpg)
+    
+// rgb(249, 249, 235, 0.8)
+//  #f9f9eb

@@ -1,3 +1,33 @@
 <div id="first">
-    SERVICIOS
+    <div class="d-flex justify-content-center title card-title pt-5">
+        <h1>Nuestras areas de práctica</h1>
+    </div>
+    <div class="d-flex justify-content-center description">
+        <h4>Suspendisse Commodo Auctor Molestie Mauris Arisusv.
+            <span style="text-align: center; display: block;">Massaconsequat Pharetra Suspendisse</span></h4>
+    </div>
+
+    <div class="row d-flex justify-content-center pt-3 pb-3">
+        <div *ngFor="let i of serviciosC" class="col-md-4 col-sm-12 col-xs-12 pb-3">
+            <div class="card border-0">
+                <div class="card-body">       
+                    <div class="row d-flex">
+                        <div class="col-1 align-items-end ">
+                            <fa-icon class="fa-2x pl-5" [icon]="i.icon"></fa-icon>
+                        </div>
+                        <div class="col">
+                            <h3 class="card-title text-center pr-5">{{i.title}}</h3>
+                        </div>
+                    </div>      
+                        <p class="card-text text-center">{{i.desc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+<!-- 
+col-md-2
+col-md-10 -->

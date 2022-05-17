@@ -7,4 +7,4 @@ modelo básico para abogados
 - Terminar el diseño del componente acerca de nosotros
 - Diseñar los demás componentes
 - Agregar un botón flotante de whatsapp
-
+- Agregar sombreado debajo de la barra de nav
