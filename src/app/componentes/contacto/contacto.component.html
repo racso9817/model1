@@ -10,12 +10,7 @@
                         </div>
                     </div>
                     <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" required>                                        
-                </div>
-                <ng-container *ngFor="let mensaje of mensaje_alerta.nombre">
-                    <div class="help-block has-error" *ngIf="contactForm.get('nombre')?.hasError('required') && (contactForm.get('nombre')?.dirty || contactForm.get('nombre')?.touched)">
-                        {{mensaje}}
-                    </div>
-                </ng-container>
+                </div>                
             </div>
             <div class="col">
                 <label class="control-label">Apellido</label>
