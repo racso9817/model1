@@ -65,6 +65,23 @@ export class ServiciosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    window.addEventListener("scroll", this.animateServicios);
+    this.animateServicios();
+  }
+
+  //animation for servicios
+  animateServicios(){
+    var servicios = document.querySelectorAll('.servicios');
+    for (var i = 0; i < servicios.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = servicios[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        servicios[i].classList.add("fade-in");
+      } else {
+        servicios[i].classList.remove("fade-in");
+      }
+    }
   }
 
 }

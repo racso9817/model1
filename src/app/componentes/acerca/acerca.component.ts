@@ -93,11 +93,27 @@ export class AcercaComponent implements OnInit {
     }
   }
 
+  animateCards(){
+    var cards = document.querySelectorAll('#cards');
+    for (var i = 0; i < cards.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = cards[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        cards[i].classList.add("fade-in");
+      } else {
+        cards[i].classList.remove("fade-in");
+      }
+    }
+  }
+
   ngOnInit() {
     //this.observer.observe(document.querySelectorAll('#title')[0]);
     window.addEventListener("scroll", this.reveal);
+    window.addEventListener("scroll", this.animateCards);
     // To check the scroll position on page load
     this.reveal();
+    this.animateCards();
   }
 
 }
