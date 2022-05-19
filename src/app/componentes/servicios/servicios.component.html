@@ -1,5 +1,5 @@
 <div id="first" class="shadow">
-    <div class="d-flex justify-content-center title card-title pt-5">
+    <div class="d-flex justify-content-center title card-title">
         <h1>Nuestras Áreas de Práctica</h1>
     </div>
     <div class="d-flex justify-content-center description">
@@ -9,7 +9,7 @@
     <div class="row d-flex justify-content-center pt-3 pb-3 servicios">
         <div *ngFor="let i of serviciosC" class="col-md-4 col-sm-12 col-xs-12 pb-3">
             <div class="card border-0">
-                <div class="card-body">       
+                <div class="card-body">
                     <div class="row d-flex">
                         <div class="col-1 align-items-end ">
                             <fa-icon class="fa-2x pl-4" [icon]="i.icon"></fa-icon>
@@ -17,12 +17,17 @@
                         <div class="col">
                             <h3 class="card-title text-center pr-5">{{i.title}}</h3>
                         </div>
-                    </div>      
-                        <p class="card-text text-center">{{i.desc}}</p>
+                    </div>
+                    <p class="card-text text-center">{{i.desc}}</p>
                 </div>
             </div>
         </div>
     </div>
+    <div style="height: 100px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M498.59,87.34 C544.30,177.14 588.88,97.21 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: blue;"></path>
+        </svg></div>
 </div>
 
 
