@@ -53,11 +53,32 @@ a:hover
         text-decoration: none
 
 
-footer 
-  background: #212529
 
-
-  body
+body
       html 
          height: 100%
-  
+
+.whatsapp-button
+    position:fixed
+    width: 5vw
+    height: 5vw
+    top: 60vh
+    right: 1vw
+    background-color:#25d366
+    border-radius: 100%
+    // box-shadow: 2px 2px 3px #999
+    z-index: 9999999999
+
+.whatsapp-button:hover
+    cursor: pointer
+
+.show-on-hover
+    display: none
+.whatsapp-button:hover + .show-on-hover
+    display: block
+    top: 63vh
+    right: 6vw
+    width: 22vw
+    background-color: #fff
+    border-radius: 10px
+    text-align: center
