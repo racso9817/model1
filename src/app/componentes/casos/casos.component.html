@@ -1,8 +1,60 @@
-<div id="first">
-    CASOS
-    <div style="height: 150px; overflow: hidden;" class="bg-secondary bg-gradient"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-        style="height: 100%; width: 100%;">
-        <path d="M144.19,-63.64 C-88.88,-20.22 611.45,-126.80 500.00,49.99 L552.76,166.29 L-20.03,-6.41 Z"
-            style="stroke: none; fill: #377E22;"></path>
-    </svg></div>
+<div id="first" class="text-white">
+    <div class="container">
+        <div class="d-flex justify-content-center title card-title">
+            <h1>Testimonios</h1>
+        </div>
+        <div class="d-flex justify-content-center description">
+            <h6>Suspendisse Commodo Auctor Molestie Mauris Arisusv.
+                <span style="text-align: center; display: block;">Massaconsequat Pharetra Suspendisse</span></h6>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div *ngFor="let i of testimonios" class="col-md-4 col-sm-12 col-xs-12">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <fa-icon class="fa-2x align-left" [icon]="i.icon"></fa-icon><br>
+                        <br>
+                        <p class="small-text">
+                            {{i.text}} <br>
+                        </p>
+                    </div>
+                    <div>
+                        <img class="rounded-circle" src="{{i.img}}">&nbsp; &nbsp; <strong
+                            class="color-white">{{i.nombre}}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center pt-5">
+        <div *ngFor="let i of cards" class="col-lg-2">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center">
+                        <div>
+                            <span>
+                                <fa-icon class="fa-3x" [icon]="i.icons"></fa-icon>
+                            </span>
+                        </div>
+                        <div class="ml-5">
+                            <h2>{{i.text1}}</h2>
+                            <h6>{{i.text2}}</h6>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="height: 150px; overflow: hidden; background-color: #23395b;"><svg viewBox="0 0 500 150"
+            preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M144.19,-63.64 C-88.88,-20.22 611.45,-126.80 500.00,49.99 L552.76,166.29 L-20.03,-6.41 Z"
+                style="stroke: none; fill: #325475;"></path>
+        </svg></div>
 </div>
