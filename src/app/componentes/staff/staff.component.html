@@ -1,8 +1,34 @@
 <div id="first">
-    STAFF
-    <div style="height: 150px; overflow: hidden; background-color: #325475;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-            style="height: 100%; width: 100%;">
-            <path d="M-0.84,1.49 C150.00,150.00 271.49,-49.99 501.41,149.51 L500.00,0.00 L-30.19,-18.24 Z"
-                style="stroke: none; fill: #396182;"></path>
-        </svg></div>
+        <div class="d-flex justify-content-center title card-title pt-5 text-white">
+                <h1>Nuestros Abogados</h1>
+        </div>
+        <div class="d-flex justify-content-center description text-white">
+                <h6>Suspendisse Commodo Auctor Molestie Mauris Arisusv.
+                        <span style="text-align: center; display: block;">Massaconsequat Pharetra Suspendisse</span>
+                </h6>
+        </div>
+
+        <!-- CARDS -->
+        <div class="row d-flex justify-content-center pt-3 pb-3" id="cards">                
+                <div *ngFor="let i of attorneys | slice: (page-1) * pageSize : page * pageSize" class="col-sm-2.8 pl-4 pr-4 mb-2">
+                        <div class="card text-center border-0">
+                                <img class="card-img-top" src={{i.image}}>
+                                <div class="card-body">
+                                        <h2 class="card-title">{{i.name}}</h2>
+                                        <p class="card-text">{{i.position}}</p>
+                                </div>
+                        </div>
+                </div>                
+        </div>
+        <div class="d-flex justify-content-center">
+                <ngb-pagination [collectionSize]="attorneysLength" [(page)]="page"
+                [maxSize]="1" [pageSize]="pageSize"></ngb-pagination>
+        </div>        
+
+        <!-- SVG SEPARATOR -->
+        <div style="height: 150px; overflow: hidden; background-color: #325475;"><svg viewBox="0 0 500 150"
+                        preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M-0.84,1.49 C150.00,150.00 271.49,-49.99 501.41,149.51 L500.00,0.00 L-30.19,-18.24 Z"
+                                style="stroke: none; fill: #396182;"></path>
+                </svg></div>
 </div>

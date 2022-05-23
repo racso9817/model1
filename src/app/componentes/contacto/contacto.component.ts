@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import 'src/assets/smtp/smtp.js';
+declare let emailText:any;
 
 @Component({
   selector: 'app-contacto',
@@ -45,6 +46,18 @@ export class ContactoComponent implements OnInit {
   }
   get mensaje(){
     return this.contactForm.get('mensaje');
+  }
+
+  onSubmit(f: FormGroup){
+    emailText.send({
+      Host: 'smtp.gmail.com',
+      Username: 'pruebamodel1@gmail.com',
+      Password: 'holaModel1',
+      To: 'pruebamodel1@gmail.com',
+      From: 'pruebamodel1@gmail.com',
+      Subject: 'Mensaje de contacto',
+      Body : 'Nombre: ' + f.value.nombre + ' ' + f.value.apellido + '<br>' + 'Email: ' + f.value.email + '<br>' + 'Celular: ' + f.value.celular + '<br>' + 'Mensaje: ' + f.value.mensaje
+    })
   }
 
 }
