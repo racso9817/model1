@@ -1,3 +1,5 @@
+@import 'src/styles.sass'
+    
 #nav-logo
     // border: 1px solid black
     display: block
@@ -57,15 +59,12 @@ a:hover
     a:focus 
         text-decoration: none
 
+#foot-title
+    font-size: $footer-title-size
 //whatsapp floating button
 .whatsapp-button
-    width: 5vw
-    height: 5vw
-    top: 60vh
-    right: 1vw
-    background-color:#25d366
-    border-radius: 100%
-    z-index: 9999999999    
+    // background-color:#25d366
+    border-radius: 100%   
 
 .whatsapp-button:hover
     cursor: pointer
@@ -74,9 +73,7 @@ a:hover
     display: none
 .whatsapp-button:hover + .show-on-hover
     display: block
-    top: 63vh
-    right: 6vw
-    width: 22vw
+    width: 25vw
     background-color: #fff
     border-radius: 10px
     text-align: center
@@ -86,13 +83,13 @@ a:hover
 //Media Queries
 /* ----------- iPhone X ----------- */
 /* Portrait */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait)
-    .whatsapp-button
-        width: 17vw
-        height: 17vw
-        right: 1vw
-/* Landscape */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape)
-    .whatsapp-button
-        width: 9vw
-        height: 9vw
+// @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait)
+//     .whatsapp-button
+//         width: 17vw
+//         height: 17vw
+//         right: 1vw
+// /* Landscape */
+// @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape)
+//     .whatsapp-button
+//         width: 9vw
+//         height: 9vw

@@ -27,12 +27,12 @@
 
         <!-- Prime NG item carousel -->
         <div class="m-auto pt-4 pb-4 item-container">
-                <p-carousel [value]="attorneys" styleClass="custom-carousel" [numVisible]="2" [numScroll]="1"
+                <p-carousel [value]="attorneys" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
                         [circular]="true" [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions"
                         [showIndicators]="false" [showNavigators]="true">
                         <ng-template let-attorney pTemplate="item">
                                 <div class="card-group ml-2 mr-2">
-                                        <div class="item card">
+                                        <div class="item card border-0">
                                                 <img src="{{attorney.image}}" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                         <h5 class="card-title text-center">{{attorney.name}}</h5>
