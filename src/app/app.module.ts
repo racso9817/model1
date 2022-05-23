@@ -25,8 +25,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 //Forms Module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//Angular Google Maps
-// import { AgmCoreModule } from '@agm/core';
+//PrimeNG
+import { CarouselModule } from 'primeng/carousel';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 
 @NgModule({
   declarations: [
@@ -52,7 +53,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    AccordionModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

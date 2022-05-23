@@ -9,7 +9,7 @@
         </div>
 
         <!-- CARDS -->
-        <div class="row d-flex justify-content-center pt-3 pb-3" id="cards">                
+        <!-- <div class="row d-flex justify-content-center pt-3 pb-3" id="cards">                
                 <div *ngFor="let i of attorneys | slice: (page-1) * pageSize : page * pageSize" class="col-sm-2.8 pl-4 pr-4 mb-2">
                         <div class="card text-center border-0">
                                 <img class="card-img-top" src={{i.image}}>
@@ -23,7 +23,27 @@
         <div class="d-flex justify-content-center">
                 <ngb-pagination [collectionSize]="attorneysLength" [(page)]="page"
                 [maxSize]="1" [pageSize]="pageSize"></ngb-pagination>
-        </div>        
+        </div>         -->
+
+        <!-- Prime NG item carousel -->
+        <div class="m-auto pt-4 pb-4 item-container">
+                <p-carousel [value]="attorneys" styleClass="custom-carousel" [numVisible]="2" [numScroll]="1"
+                        [circular]="true" [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions"
+                        [showIndicators]="false" [showNavigators]="true">
+                        <ng-template let-attorney pTemplate="item">
+                                <div class="card-group ml-2 mr-2">
+                                        <div class="item card">
+                                                <img src="{{attorney.image}}" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                        <h5 class="card-title text-center">{{attorney.name}}</h5>
+                                                        <p class="card-text text-center">{{attorney.position}}</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </ng-template>
+                </p-carousel>
+        </div>
+
 
         <!-- SVG SEPARATOR -->
         <div style="height: 150px; overflow: hidden; background-color: #325475;"><svg viewBox="0 0 500 150"

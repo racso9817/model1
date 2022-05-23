@@ -35,8 +35,28 @@ export class StaffComponent implements OnInit {
   pageSize = 2;
   attorneysLength = this.attorneys.length;
 
+  responsiveOptions:any;
 
-  constructor() { }
+
+  constructor() {
+    this.responsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+    ];
+   }
 
   ngOnInit(): void {
   }
