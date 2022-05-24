@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,10 @@ export class AppComponent {
 
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
+
+  constructor(private primengConfig: PrimeNGConfig) {
+    this.primengConfig.ripple = true;
   }
 
 }
