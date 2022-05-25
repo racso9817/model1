@@ -3,6 +3,8 @@
 /* Importing Bootstrap SCSS file. */
 // @import '~bootstrap/scss/bootstrap'
 
+@import 'src/assets/animations/animate.sass'
+
 $title-size: 2rem
 $sub-title-size: 0.8rem
 $testimonio-p-size: 0.7rem
@@ -26,3 +28,25 @@ body::-webkit-scrollbar
 
 a:hover
     cursor: pointer
+
+.animated-delay-1 
+    animation-delay: 1s
+    -webkit-animation-delay: 1s
+    -moz-animation-delay: 1s
+    -o-animation-delay: 1s
+
+
+.animated-delay-2 
+    animation-delay: 2s
+    -webkit-animation-delay: 2s
+    -moz-animation-delay: 2s
+    -o-animation-delay: 2s
+
+
+.animated 
+    visibility: visible !important
+
+.hide-on-init 
+    visibility: hidden
+
+

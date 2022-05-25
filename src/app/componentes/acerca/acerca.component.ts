@@ -1,5 +1,9 @@
+import { state, trigger } from '@angular/animations';
+import { style, animate, transition } from '@angular/animations';
 import { Component, OnInit, Input } from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -17,7 +21,8 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
     </div>
   `,
-  // styleUrls: ['']
+  // styleUrls: [''],
+  
 })
 
 export class NgbdModalContent {

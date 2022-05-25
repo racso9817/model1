@@ -18,6 +18,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 //Angular Material
 import { UbicacionComponent } from './componentes/ubicacion/ubicacion.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -28,6 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //PrimeNG
 import { CarouselModule } from 'primeng/carousel';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+// Third party modules
+import { AnimateOnScrollDirective, AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,8 @@ import {AccordionModule} from 'primeng/accordion';     //accordion and accordion
     ReactiveFormsModule,
     CarouselModule,
     AccordionModule,
-
+    NoopAnimationsModule,
+    AnimateOnScrollModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
