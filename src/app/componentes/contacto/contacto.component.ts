@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import 'src/assets/smtp/smtp.js';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
 declare let emailText:any;
 
 @Component({
@@ -10,7 +10,24 @@ declare let emailText:any;
 })
 export class ContactoComponent implements OnInit {
 
+  private submissionForm!: AngularFirestoreCollection<any>;
+
   contactForm!: FormGroup;
+
+  constructor(private firestore: AngularFirestore, private fb: FormBuilder) { }
+
+  ngOnInit(): void {
+   
+    this.submissionForm = this.firestore.collection('submissions');
+    this.contactForm = this.fb.group({
+      nombre: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      celular: new FormControl('', [Validators.required]),
+      mensaje: new FormControl('', [Validators.required]),
+      
+    });
+  }
 
   mensaje_alerta = {
     nombre: 'Debe ingresar un nombre',
@@ -19,18 +36,7 @@ export class ContactoComponent implements OnInit {
     celular: 'Debe ingresar un celular',
     mensaje: 'Debe ingresar un mensaje',
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.contactForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellido: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      celular: new FormControl('', [Validators.required]),
-      mensaje: new FormControl('', [Validators.required]),
-    })
-  }
+ 
 
   get nombre(){
     return this.contactForm.get('nombre');

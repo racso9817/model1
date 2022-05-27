@@ -11,6 +11,7 @@ import { ServiciosComponent } from './componentes/servicios/servicios.component'
 import { StaffComponent } from './componentes/staff/staff.component';
 import { CasosComponent } from './componentes/casos/casos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { environment } from 'src/environments/environment';
 //FontAwesome
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -31,6 +32,12 @@ import { CarouselModule } from 'primeng/carousel';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 // Third party modules
 import { AnimateOnScrollDirective, AnimateOnScrollModule } from 'ng2-animate-on-scroll';
+// Firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+
+
 
 @NgModule({
   declarations: [
@@ -61,8 +68,11 @@ import { AnimateOnScrollDirective, AnimateOnScrollModule } from 'ng2-animate-on-
     AccordionModule,
     NoopAnimationsModule,
     AnimateOnScrollModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
+
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
