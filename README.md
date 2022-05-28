@@ -31,7 +31,6 @@ export const environment = {
   }
 };
 
-
 3. De vuelta a la terminal de visual studio, instalar tambien los tools de firebase con el comando: npm i firebase-tools
 4. Luego de esto pasar a hacer log in a firebase, basicamente conectar los tools con la aplicacion que se creo de firebase.
 5. Para esto, tendremos que poner el comando: firebase login 
