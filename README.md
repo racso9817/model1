@@ -16,7 +16,7 @@ modelo básico para abogados
 
   npm i @angular/fire
 
-Luego de hacer esto, se debera ir a la consola de firebase y crear una nueva aplicación. Cuando esta este lista, se debera ir a la consola de firebase y habilitar la opcion de firestore. Luego de esto, no olvidarse de agregar en la carpeta "environments/environment.ts" la key de firebase. Esta puede ser obtenida en la consola de firebase o  en las opciones de la consola. **Un ejemplo asi:**
+Luego de hacer esto, se debera ir a la consola de firebase(buscar en google la pagina) y crear una nueva aplicación. Cuando esta este lista, se debera ir a la consola de firebase y habilitar la opcion de firestore. Luego de esto regresamos al visual studio pasamos a agregar en la carpeta "environments/environment.ts" la key de firebase. Esta puede ser obtenida en la consola de firebase o  en las opciones de la consola. **Un ejemplo asi:**
 
 export const environment = {
   production: false,
