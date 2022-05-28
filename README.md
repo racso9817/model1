@@ -93,6 +93,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 19. **y en "submissionForm!" es donde se pondra el nombre del formulario, como tambien en "contactForm!" donde se hara referencia al FormGroup para el HTML**
 20. Luego de esto seguir y copiar este codigo:
 
+```
   ngOnInit(): void {
     this.submissionForm = this.firestore.collection('submissions');
     this.contactForm = this.fb.group({
@@ -121,6 +122,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
       this.contactForm.reset();
     }
   }
+  ```
 
 21. Por ultimo, digigirse al HTML del componente del formulario. Y agregar [formGroup]="contactForm"> al inico del <form>, para que se pueda hacer referencia al FormGroup. 
 22. Y tambien agregar el siguiente codigo **dentro del boton** para que haga referencia y el submit se mande al presionar el boton.
