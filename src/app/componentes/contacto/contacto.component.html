@@ -65,6 +65,6 @@
                 <textarea class="form-control" rows="3" formControlName="mensaje" required></textarea>
             </div>
         </div>
-        <button class="btn btn-primary" (onClick)="onSubmit(contactForm)" type="submit" [disabled]="!contactForm.valid">Enviar</button>
+        <button class="btn btn-primary" value="Submit" (click)="submitData(contactForm.value)" type="submit" [disabled]="!contactForm.valid">Enviar</button>
     </form>    
 </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
-declare let emailText:any;
 
 @Component({
   selector: 'app-contacto',
@@ -38,32 +37,36 @@ export class ContactoComponent implements OnInit {
   }
  
 
-  get nombre(){
-    return this.contactForm.get('nombre');
-  }
-  get apellido(){
-    return this.contactForm.get('apellido');
-  }
-  get email(){
-    return this.contactForm.get('email');
-  }
-  get celular(){
-    return this.contactForm.get('celular');
-  }
-  get mensaje(){
-    return this.contactForm.get('mensaje');
-  }
+  // get nombre(){
+  //   return this.contactForm.get('nombre');
+  // }
+  // get apellido(){
+  //   return this.contactForm.get('apellido');
+  // }
+  // get email(){
+  //   return this.contactForm.get('email');
+  // }
+  // get celular(){
+  //   return this.contactForm.get('celular');
+  // }
+  // get mensaje(){
+  //   return this.contactForm.get('mensaje');
+  // }
 
-  onSubmit(f: FormGroup){
-    emailText.send({
-      Host: 'smtp.gmail.com',
-      Username: 'pruebamodel1@gmail.com',
-      Password: 'holaModel1',
-      To: 'pruebamodel1@gmail.com',
-      From: 'pruebamodel1@gmail.com',
-      Subject: 'Mensaje de contacto',
-      Body : 'Nombre: ' + f.value.nombre + ' ' + f.value.apellido + '<br>' + 'Email: ' + f.value.email + '<br>' + 'Celular: ' + f.value.celular + '<br>' + 'Mensaje: ' + f.value.mensaje
-    })
-  }
+  submitting = false;
+  submitted = false;
 
+  submitData(value: any) {
+    console.log(this.submitted);
+
+    this.submitting = true;
+    this.submissionForm.add(value).then(res => {
+      this.submitted = true;
+    }).catch(err => console.log(err)
+    ).finally(() => {
+      this.submitting = false;
+    });
+    window.alert("Correo enviado");
+    this.contactForm.reset();
+  }
 }
