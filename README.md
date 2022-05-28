@@ -93,8 +93,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 19. **y en "submissionForm!" es donde se pondra el nombre del formulario, como tambien en "contactForm!" donde se hara referencia al FormGroup para el HTML**
 20. Luego de esto seguir y copiar este codigo:
 
- ngOnInit(): void {
-   
+  ngOnInit(): void {
     this.submissionForm = this.firestore.collection('submissions');
     this.contactForm = this.fb.group({
       nombre: new FormControl('', [Validators.required]),
@@ -102,35 +101,26 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
       email: new FormControl('', [Validators.required, Validators.email]),
       celular: new FormControl('', [Validators.required]),
       mensaje: new FormControl('', [Validators.required]),
-      
     });
-  }
-
-   mensaje_alerta = {
-    nombre: 'Debe ingresar un nombre',
-    apellido: 'Debe ingresar un apellido',
-    email: 'Debe ingresar un email',
-    celular: 'Debe ingresar un celular',
-    mensaje: 'Debe ingresar un mensaje',
   }
 
     submitting = false;
     submitted = false;
 
     submitData(value: any) {
-    console.log(this.submitted);
+      console.log(this.submitted);
 
-    this.submitting = true;
-    this.submissionForm.add(value).then(res => {
-      this.submitted = true;
-    }).catch(err => console.log(err)
-    ).finally(() => {
-      this.submitting = false;
-    });
-    window.alert("Correo enviado");
-    this.contactForm.reset();
+      this.submitting = true;
+      this.submissionForm.add(value).then(res => {
+        this.submitted = true;
+      }).catch(err => console.log(err)
+      ).finally(() => {
+        this.submitting = false;
+      });
+      window.alert("Correo enviado");
+      this.contactForm.reset();
+    }
   }
-}
 
 21. Por ultimo, digigirse al HTML del componente del formulario. Y agregar [formGroup]="contactForm"> al inico del <form>, para que se pueda hacer referencia al FormGroup. 
 22. Y tambien agregar el siguiente codigo **dentro del boton** para que haga referencia y el submit se mande al presionar el boton.
