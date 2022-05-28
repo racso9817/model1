@@ -2,6 +2,7 @@ import * as functions from "firebase-functions";
 import * as nodemailer from "nodemailer";
 import * as admin from "firebase-admin";
 admin.initializeApp();
+require('dotenv').config();
 
 exports.sendEmailNotification = functions.firestore
     .document("submissions/{docId}")
@@ -17,11 +18,11 @@ exports.sendEmailNotification = functions.firestore
         },
       });
       authData.sendMail({
-        from: "pruebamodel1@gmail.com",
+        from: `${data.email}`,
         to: "pruebamodel1@gmail.com",
-        subject: "Your submission Info",
-        text: `${data.email}`,
-        html: `${data.email}`,
+        subject: `Mensaje de ${data.nombre} ${data.apellido}`,
+        text: `Nombre: ${data.nombre} Apellido: ${data.apellido} \nEmail: ${data.email} \nCelular: ${data.celular} \nMensaje: ${data.mensaje}`,
+        html: `<b>Nombre:</b> ${data.nombre} ${data.apellido} <br><b>Email:</b> ${data.email} <br><b>Celular:</b> ${data.celular} <br><b>Mensaje:</b> ${data.mensaje}`,
       }).then(() => console.log("successfully sent that mail"))
           .catch((err: any) => console.log(err));
     });
