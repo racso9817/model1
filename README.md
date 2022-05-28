@@ -18,7 +18,6 @@ modelo básico para abogados
 
 Luego de hacer esto, se debera ir a la consola de firebase(buscar en google la pagina) y crear una nueva aplicación. Cuando esta este lista, se debera ir a la consola de firebase y habilitar la opcion de firestore. Luego de esto regresamos al visual studio pasamos a agregar en la carpeta "environments/environment.ts" la key de firebase. Esta puede ser obtenida en la consola de firebase o  en las opciones de la consola. **Un ejemplo asi:**
 
-{
 export const environment = {
   production: false,
     firebaseConfig: {
@@ -31,7 +30,6 @@ export const environment = {
     measurementId: 'G-TYD1SEK8H2'
   }
 };
-}
 
 3. De vuelta a la terminal de visual studio, instalar tambien los tools de firebase con el comando: npm i firebase-tools
 4. Luego de esto pasar a hacer log in a firebase, basicamente conectar los tools con la aplicacion que se creo de firebase.
@@ -47,7 +45,6 @@ que estamos usando las funciones de firebase.
 13. Node mailer es lo que nos ayudara para poder enviar el email.
 14. **En index.ts se debe de ingresar el siguiente codigo:**
 
-{
 import * as functions from "firebase-functions";
 import * as nodemailer from "nodemailer";
 import * as admin from "firebase-admin";
@@ -77,7 +74,6 @@ exports.sendEmailNotification = functions.firestore
           .catch((err: any) => console.log(err));
     });
 
-}
 15. Este es el codigo que servira para el envio de correos al database de firebase y al email.
 16. Luego de esto nos iremos al ts. file del componente en donde se encuentre el formulario.
 17. **Dentro del ts. file , deberan de estar estos imports.**
@@ -87,7 +83,6 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 
 18. **A la vez, estas declaraciones:**
 
-{
   private submissionForm!: AngularFirestoreCollection<any>;
 
   contactForm!: FormGroup;
@@ -95,7 +90,6 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
   constructor(private fb: FormBuilder, private firestore: AngularFirestore) {
   }
 
-}
 19. **y en "submissionForm!" es donde se pondra el nombre del formulario, como tambien en "contactForm!" donde se hara referencia al FormGroup para el HTML**
 20. Luego de esto seguir y copiar este codigo:
 
