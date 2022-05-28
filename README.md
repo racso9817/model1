@@ -134,7 +134,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 21. Por ultimo, digigirse al HTML del componente del formulario. Y agregar ```[formGroup]="contactForm">``` al inico del <form>, para que se pueda hacer referencia al FormGroup. 
 22. Y tambien agregar el siguiente codigo **dentro del boton** para que haga referencia y el submit se mande al presionar el boton.
 ```
-**value="Submit" (click)="submitData(contactForm.value)" type="submit" [disabled]="!contactForm.valid"**
+value="Submit" (click)="submitData(contactForm.value)" type="submit" [disabled]="!contactForm.valid"
 ```
 23. Luego de haber realizado estos pasos, estando aun dentro de "functions". En la terminal escribir este codigo:
 ```
