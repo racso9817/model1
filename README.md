@@ -145,3 +145,5 @@ value="Submit" (click)="submitData(contactForm.value)" type="submit" [disabled]=
     firebase deploy
 ```
 24. Esperar a que se termine el proceso. y cuando se finalice simplemente tratar de enviar el formulario en el localhost y esperar el email.
+  
+25. Video de referencia: https://www.youtube.com/watch?v=iuGPFbLlKYQ&t=312s&ab_channel=CryceTruly
