@@ -147,3 +147,82 @@ value="Submit" (click)="submitData(contactForm.value)" type="submit" [disabled]=
 24. Esperar a que se termine el proceso. y cuando se finalice simplemente tratar de enviar el formulario en el localhost y esperar el email.
   
 25. Video de referencia: https://www.youtube.com/watch?v=iuGPFbLlKYQ&t=312s&ab_channel=CryceTruly
+
+  
+##  OAuth2 Explicacion
+
+1. Primero que nada hay que crear el OAuth2, yendo a la página de google "Google Cloud Platform". Esta será la plataforma que se usar para el uso del OAuth2.
+  
+2. En esta página, creamos un nuevo proyecto. Con el proyecto creado, nos dirigimos a las opciones de API y Servicios. En esta parte tendremos que ir a la parte de pantalla de consentimiento de OAuth y crearlo eligiendo "External". Rellenar los formularios siguientes: Email, Información de contacto del desarrollador(donde se ponen también emails), Luego en la siguiente sección de permisos agregar el API de google "https://mail.google.com/" y agregarlo a la tabla. Solo editar estas cosas. Cualquier duda ver este video: https://www.youtube.com/watch?v=-rcRf7yswfM&t=1s&ab_channel=yoursTRULY.
+  
+3. Una vez creado esto, hay que pasar a seleccionar en la lista "Credenciales"(Se encuentra en la barra de la izquierda, justo arriba de consentimiento). En esta sección le damos a "Crear nuevas credenciales" y en esta selecionar "OAuth2". Debería de ser la segunda opción.
+  
+4. En esta sección hay que agregar este link "https://developers.google.com/oauthplayground" en "URI de redireccionamiento autorizados". Luego pasaremos a guardar los datos y de tal manera se generaran nuestras keys. Luego de esto, tendremos que dirigirnos a el sitio web adjuntado anteriormente(oauthplayground).
+  
+5. En este sitio web vamos a agregar en la parte de abajo donde dice "Authorize Apis" el api de google = "https://mail.google.com". Al momento de escribir en el campo el api de google, habrá que dirigirse a la derecha de la página y darle click a la ruedita para las opciones.
+  
+6.Al momento de darle click a la ruedita, van a apacerer unas opciones. Al final de estas opciones, hay un campo que dice "Use your own Oauth credentials". En este campo vamos a agregar las keys que conseguimos en Google Cloud Platform. Luego de esto, pasamos a cerrar el cuadro y le damos al boton de "Authorize Apis". Seguir los pasos, y iniciar sesión con la cuenta de google y aceptar los promps.
+  
+7. Estos pasos crearan unas keys que estarán en la parte izquierda de la página. Darle click al boton "Exchange authorization code for tokens" para generar las demas keys o tokens.
+  
+8. Luego de esto dirigirse al visual studio y hacer "cd" a la carpeta functions y hacer "npm i googleapis" para instalar el modulo de google que permitira usar las keys. 
+  
+9. En el siguiente paso habrán que agregarse las siguientes variables en el código.
+  
+```
+  const {google} = require('googleapis');
+  
+  const CLIENT_ID = '';
+  const CLEINT_SECRET = '';
+  const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+  const REFRESH_TOKEN = '';
+  
+  const oAuth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLEINT_SECRET,
+  REDIRECT_URI
+);
+
+  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+  
+  const accessToken = oAuth2Client.getAccessToken();
+  
+```
+  
+10. Dentro de los campos con las comillas, es donde pasaremos a ingresar las tokens y las keys generadas en la pagina de oauth junto a las de Google Cloud.
+
+11. Y Luego de esto pasaremos a adjuntar lo siguiente al codigo:
+  
+```
+  
+exports.sendEmailNotification = functions.firestore
+    .document("submissions/{docId}")
+    .onCreate((snap:any) => {
+      const data = snap.data();
+      const authData = nodemailer.createTransport({
+        service: "gmail",
+        secure: true,
+        auth: {
+          type: "OAuth2",
+          user: "jeremysojos@medit.co.in",
+          clientId: CLIENT_ID,
+          clientSecret: CLEINT_SECRET,
+          refreshToken: REFRESH_TOKEN,
+          accessToken: accessToken,
+          expires: 3600
+
+        },
+      });
+      authData.sendMail({
+        from: `${data.email}`,
+        to: "jeremy_sojos@hotmail.com",
+        subject: `Mensaje de ${data.nombre} ${data.apellido}`,
+        text: `Nombre: ${data.nombre} Apellido: ${data.apellido} \nEmail: ${data.email} \nCelular: ${data.celular} \nMensaje: ${data.mensaje}`,
+        html: `<b>Nombre:</b> ${data.nombre} ${data.apellido} <br><b>Email:</b> ${data.email} <br><b>Celular:</b> ${data.celular} <br><b>Mensaje:</b> ${data.mensaje}`,
+      }).then(() => console.log("successfully sent that mail"))
+          .catch((err: any) => console.log(err));
+    });
+  
+ ```
+12. En auth se llaman las variables con los valores puestos en la parte de arriba. En este caso solo faltaria de cambiar el correo donde dice "to" al correo que se quieran enviar los correos. Y por finalizar hacer firebase deploy.
+
